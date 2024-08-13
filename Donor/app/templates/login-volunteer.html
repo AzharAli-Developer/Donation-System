@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 ">
+
+            <div class="mb-md-5 ">
+
+              <h2 class="fw-bold mb-2 text-uppercase text-center">Volunteer Login</h2>
+              <p class="text-white-50 mb-5 text-center">Please enter your login and password!</p>
+
+              {% if messages %}
+              {% for message in messages %}
+              <p {% if message.tags %} class="alert alert-{{message.tags}} my-5" {% endif %}>{{message}}</p>
+              {% endfor %}
+              {% endif %}
+              <form action="" method="POST">
+                {% csrf_token %}
+                {% for fm in form %}
+                <div class=" my-3">
+                  {{fm.label_tag}}{{fm}}
+                </div>
+                {% endfor %}
+                <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="{% url 'password_reset_form' %}">Forgot password?</a></p>
+                <div class="text-center">
+                  <button class="btn btn-outline-light btn-lg px-5 " type="submit">Login</button>
+                </div>
+              </form>
+            </div>
+            <div>
+              <p class="mb-0">Don't have an account? <a href="{% url 'signup_volunteer' %}"
+                  class="text-white-50 fw-bold">Sign Up</a></p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock main %}

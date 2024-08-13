@@ -1,0 +1,131 @@
+{% extends 'base-db-donor.html' %}
+{% load static %}
+        <!-- Home Dashboard -->
+        {% block main %}
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mt-2">
+                    <div class="card text-center">
+                        <div class="card-header pt-5 bg-primary text-white">
+                            <div>
+                                <h3>My Total Donations</h3>
+                                <hr>
+                            </div>
+                            <div class="row align-items-center pt-3">
+                                <div class="col">
+                                    <i class="fa fa-list fa-3x"></i>
+                                </div>
+                                <div class="col">
+                                    <h3 class="display-3">{{item}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <h4>
+                                <a href="{% url 'donation_history' %}" class="text-primary">View Details</a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-2">
+                    <div class="card text-center ">
+                        <div class="card-header bg-success text-white pt-5" >
+                            <div>
+                                <h3>My Accepted Donations</h3>
+                                <hr>
+                            </div>
+                            <div class="row align-items-center pt-3">
+                                <div class="col">
+                                    <i class="fa fa-snowflake fa-3x"></i>
+                                </div>
+                                <div class="col">
+                                    <h3 class="display-3">{{accept}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <h4>
+                                <a href="{% url 'donor_accepted_donation' %}" class="text-primary">View Details</a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-2">
+                    <div class="card text-center ">
+                        <div class="card-header bg-danger text-white pt-5">
+                            <div>
+                                <h3>My Rejected Donations</h3>
+                                <hr>
+                            </div>
+                            <div class="row align-items-center pt-3">
+                                <div class="col">
+                                    <i class="fa fa-arrows fa-3x"></i>
+                                </div>
+                                <div class="col">
+                                    <h3 class="display-3">{{reject}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <h4>
+                                <a href="{% url 'donor_rejected_donation' %}" class="text-primary">View Details</a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6 col-md-6 mt-2">
+                    <div class="card text-center ">
+                        <div class="card-header bg-warning text-white pt-5">
+                            <div>
+                                <h3>My Pending Donations</h3>
+                                <hr>
+                            </div>
+                            <div class="row align-items-center pt-3">
+                                <div class="col">
+                                    <i class="fa fa-exchange fa-3x"></i>
+                                </div>
+                                <div class="col">
+                                    <h3 class="display-3">{{pending}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <h4>
+                                <a href="{% url 'pending_donation' %}" class="text-primary">View Details</a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 mt-2">
+                    <div class="card text-center">
+                        <div class="card-header pt-5 bg-secondary text-white">
+                            <div>
+                                <h3>My Successfully Delivered Donations</h3>
+                                <hr>
+                            </div>
+                            <div class="row align-items-center pt-3">
+                                <div class="col">
+                                    <i class="fa-solid fa-bahai fa-3x"></i>
+                                </div>
+                                <div class="col">
+                                    <h3 class="display-3">08</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <h4>
+                                <a href="{% url 'donation_history' %}" class="text-primary">View Details</a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock main %}
+
+           
+         
+

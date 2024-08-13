@@ -1,0 +1,30 @@
+{% extends 'base-db-donor.html' %}
+{% load static %}
+{% block main %}
+<div class="container mt-5 vh-100 table-responsive">
+    <h3>Donation History</h3>
+    <hr>
+    <table id="mytable" class="table data">
+        <thead class="table-dark">
+            <tr class="text-center">
+                <th scope="col">#</th>
+                <th>Donation Name</th>
+                <th>Donation Date</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+        </thead>
+        <tbody>
+          {% for fm in form %}
+            <tr class="text-center">
+                <th>{{forloop.counter}}</th>
+                <td>{{fm.donationname}}</td>
+                <td> {{fm.donationdate}}</td>
+                <td>{{fm.status}}</td>
+                <td><a href="{% url 'donationdetail_donor' fm.id %}">View Details</a></td>
+              </tr>
+              {% endfor %}
+        </tbody>
+    </table>
+  </div>
+{% endblock main %}

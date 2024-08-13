@@ -1,0 +1,32 @@
+{% extends 'base-db-admin.html' %}
+{% load static %}
+{% block main %}
+<div class="container mt-5 vh-100 table-responsive">
+    <h3>Manage Donor</h3>
+    <hr>
+    <table id="mytable" class="table data">
+        <thead class="table-dark">
+            <tr class="text-center">
+                <th scope="col">#</th>
+                <th>Donor Name</th>
+                <th>Email ID</th>
+                <th>Contact</th>
+                <th>Reg. Date</th>
+                <th>Action</th>
+              </tr>
+        </thead>
+        <tbody>
+          {% for d in donor %}
+            <tr class="text-center">
+                <th>{{forloop.counter}}</th>
+                <td class="text-capitalize">{{d.user}}</td>
+                <td>{{d.user.email}}</td>
+                <td>{{d.contact}}</td>
+                <td>{{d.regdate}}</td>
+                <td><a href="{% url 'view_donordetail' d.id %}">View Details</a></td>
+              </tr>
+              {% endfor %}
+        </tbody>
+    </table>
+  </div>
+{% endblock main %}

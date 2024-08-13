@@ -1,0 +1,28 @@
+{% extends 'base-db-volunteer.html' %}
+{% load static %}
+{% block main %}
+<div class="container mt-5 vh-100 table-responsive">
+    <h3>Volunteer Allocated Donations</h3>
+    <hr>
+    <table id="mytable" class="table data">
+        <thead class="table-dark">
+            <tr class="text-center">
+                <th scope="col">#</th>
+                <th>Donation Name</th>
+                <th>Donation Date</th>
+                <th>Action</th>
+              </tr>
+        </thead>
+        <tbody>
+          {% for d in donations %}
+            <tr class="text-center">
+                <th>{{forloop.counter}}</th>
+                <td>{{d.donationname}}</td>
+                <td>{{d.donationdate}}</td>
+                <td><a href="{% url 'donationcollection_detail' d.id %}">View Details</a></td>
+              </tr>
+              {% endfor %}
+        </tbody>
+    </table>
+  </div>
+{% endblock main %}

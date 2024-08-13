@@ -1,0 +1,177 @@
+{% extends 'base-db-admin.html' %}
+{% load static %}
+        <!-- Home Dashboard -->
+        {% block main %}
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mt-2">
+                    <div class="card text-center">
+                        <div class="card-header pt-5 bg-primary text-white">
+                            <div>
+                                <h3>Total Donor</h3>
+                                <hr>
+                            </div>
+                            <div class="row align-items-center pt-3">
+                                <div class="col">
+                                    <i class="fa fa-list fa-3x"></i>
+                                </div>
+                                <div class="col">
+                                    <h3 class="display-3">{{donor}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <h4>
+                                <a href="{% url 'manage_donor' %}" class="text-primary">View Details</a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-2">
+                    <div class="card text-center ">
+                        <div class="card-header bg-success text-white pt-5" >
+                            <div>
+                                <h3>Total Volunteer</h3>
+                                <hr>
+                            </div>
+                            <div class="row align-items-center pt-3">
+                                <div class="col">
+                                    <i class="fa fa-snowflake fa-3x"></i>
+                                </div>
+                                <div class="col">
+                                    <h3 class="display-3">{{volunteer}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <h4>
+                                <a href="{% url 'all_volunteer' %}" class="text-primary">View Details</a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-2">
+                    <div class="card text-center ">
+                        <div class="card-header bg-danger text-white pt-5">
+                            <div>
+                                <h3>Total Donation</h3>
+                                <hr>
+                            </div>
+                            <div class="row align-items-center pt-3">
+                                <div class="col">
+                                    <i class="fa fa-arrows fa-3x"></i>
+                                </div>
+                                <div class="col">
+                                    <h3 class="display-3">{{donation}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <h4>
+                                <a href="{% url 'all_donations' %}" class="text-primary">View Details</a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-2">
+                    <div class="card text-center ">
+                        <div class="card-header bg-secondary text-white pt-5">
+                            <div>
+                                <h3>Total Donation Area</h3>
+                                <hr>
+                            </div>
+                            <div class="row align-items-center pt-3">
+                                <div class="col">
+                                    <i class="fa fa-exchange fa-3x"></i>
+                                </div>
+                                <div class="col">
+                                    <h3 class="display-3">{{donationarea}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <h4>
+                                <a href="{% url 'manage_area' %}" class="text-primary">View Details</a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-4 col-md-6 mt-2">
+                    <div class="card text-center">
+                        <div class="card-header pt-5 bg-secondary text-white">
+                            <div>
+                                <h3>Total New Donation Request</h3>
+                                <hr>
+                            </div>
+                            <div class="row align-items-center pt-3">
+                                <div class="col">
+                                    <i class="fa-solid fa-bahai fa-3x"></i>
+                                </div>
+                                <div class="col">
+                                    <h3 class="display-3">{{new_donation}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <h4>
+                                <a href="{% url 'new_donation' %}" class="text-primary">View Details</a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-2">
+                    <div class="card text-center ">
+                        <div class="card-header bg-danger text-white pt-5" >
+                            <div>
+                                <h3>Total Accepted Donation</h3>
+                                <hr>
+                            </div>
+                            <div class="row align-items-center pt-3">
+                                <div class="col">
+                                    <i class="fa-solid fa-bars-progress fa-3x"></i>
+                                </div>
+                                <div class="col">
+                                    <h3 class="display-3">{{accept_donation}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <h4>
+                                <a href="{% url 'accepted_donation' %}" class="text-primary">View Details</a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-2">
+                    <div class="card text-center ">
+                        <div class="card-header bg-success text-white pt-5">
+                            <div>
+                                <h3>Total Donation Delivered</h3>
+                                <hr>
+                            </div>
+                            <div class="row align-items-center pt-3">
+                                <div class="col">
+                                    <i class="fa-solid fa-asterisk fa-3x"></i>
+                                </div>
+                                <div class="col">
+                                    <h3 class="display-3">{{deliever_donation}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <h4>
+                                <a href="{% url 'donationdelivered_admin' %}" class="text-primary">View Details</a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock main %}
+
+           
+         
+

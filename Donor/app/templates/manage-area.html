@@ -1,0 +1,30 @@
+{% extends 'base-db-admin.html' %}
+{% load static %}
+{% block main %}
+<div class="container mt-5 vh-100 table-responsive">
+  <h3>Manage Area</h3>
+  <hr>
+  <table id="mytable" class="table data">
+    <thead class="table-dark">
+      <tr class="text-center">
+        <th scope="col">#</th>
+        <th>AreaName</th>
+        <th>CreationDate</th>
+        <th>Action</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for area in areas %}
+      <tr class="text-center">
+        <th>{{forloop.counter}}</th>
+        <td>{{area.areaname}}</td>
+        <td>{{area.creationdate}}</td>
+        <td><a href="{% url 'edit_area' area.id %}">Edit</a></td>
+        <td><a href="#">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock main %}

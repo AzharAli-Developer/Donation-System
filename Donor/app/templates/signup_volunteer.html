@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+            <div class="card-body p-5 ">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+
+                    <h2 class="fw-bold mb-2 text-uppercase text-center">Volunteer Sign Up</h2>
+                    <p class="text-white-50 mb-2 text-center">Please enter following details</p>
+
+                    <div class="col-md-8 mx-auto">
+                        {% if form1.errors %}
+                        <div class="alert alert-danger">
+                            {{ form1.errors }}
+                        </div>
+                        {% endif %}
+                        {% if form2.errors %}
+                        <div class="alert alert-danger">
+                            {{ form2.errors }}
+                        </div>
+                        {% endif %}
+
+                        {% if messages %}
+                        {% for message in messages %}
+                        <p {% if message.tags %} class="alert alert-{{message.tags}} my-5" {% endif %}>{{message}}</p>
+                        {% endfor %}
+                        {% endif %}
+                        <form action="" method="POST" enctype="multipart/form-data" novalidate>
+                            {% csrf_token %}
+                            {% for fm in form1 %}
+                            <div class="form-group p-2">
+                                {{fm.label_tag}}{{fm}}
+                                <small class="text-center">{{fm.error|striptags}}</small>
+                            </div>
+                            {% endfor %}
+                            {% for fm in form2 %}
+                            <div class="form-group  p-2">
+                                {{fm.label_tag}}{{fm}}
+                                <small class="text-center">{{fm.error|striptags}}</small>
+                            </div>
+                            {% endfor %}
+                            <input type="submit" value="Submit" class="mt-4 px-3 btn btn-primary col-md-12 " />
+
+                            <div class="mt-4 px-3 text-center">
+                                <p class="mb-0">
+                                    Already have an account?
+                                    <a href="{% url 'login_volunteer' %}" class="text-white-50 fw-bold">Login</a>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock main %}

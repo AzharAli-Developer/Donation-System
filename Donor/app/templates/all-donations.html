@@ -1,0 +1,30 @@
+{% extends 'base-db-admin.html' %}
+{% load static %}
+{% block main %}
+<div class="container mt-5 vh-100 table-responsive">
+    <h3>All Donations</h3>
+    <hr>
+    <table id="mytable" class="table data">
+        <thead class="table-dark">
+            <tr class="text-center">
+                <th scope="col">#</th>
+                <th scope="col">Donation Name</th>
+                <th scope="col">Donation Date</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+              </tr>
+        </thead>
+        <tbody>
+          {% for item in items %}
+            <tr class="text-center">
+                <th>{{forloop.counter}}</th>
+                <td>{{item.donationname}}</td>
+                <td>{{item.donationdate}}</td>
+                <td>{{item.status}}</td>
+                <td><a href="{% url 'donation_delete' item.id %}">Delete</a></td>
+              </tr>
+              {% endfor %}
+        </tbody>
+    </table>
+  </div>
+{% endblock main %}

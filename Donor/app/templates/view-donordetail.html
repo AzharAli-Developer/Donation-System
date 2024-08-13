@@ -1,0 +1,30 @@
+{% extends 'base-db-admin.html' %}
+{% load static %}
+{% block main %}
+<div class="container mt-5 vh-100 table-responsive">
+  <h3>View Donor Detail</h3>
+  <hr>
+  <table id="mytable" class="table data ">
+      <tbody>
+          <tr class="align-middle text-center" >
+              <th colspan="4"><h3>Donor Details</h3></th>
+          </tr>
+          <tr class="align-middle text-center">
+            <td><h5>Donor Name</h5></td>
+            <td><h5 class="text-secondary text-capitalize">{{item.user.first_name}} {{item.user.last_name}}</h5></td>
+            <td><h5>Donor Contact</h5></td>
+            <td><h5 class="text-secondary">{{item.contact}}</h5></td>
+        </tr>
+          <tr class="align-middle text-center">
+              <td><h5>Email</h5></td>
+              <td><h5 class="text-secondary">{{item.user.email}}</h5></td>
+              <td><h5>Donor Pic</h5></td>
+            <td><img src="{{item.userpic.url}}" width="80" height="80" /></td>
+          </tr>
+        
+       
+
+      </tbody>
+  </table>
+</div>
+{% endblock main %}

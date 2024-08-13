@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation & Volunteer System</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/helping-hand.png' %}" />
+    <!-- Font Awesome icons (free version)-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" >
+
+    <!-- Google fonts-->  
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;100;300;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+
+    <link rel="stylesheet" href="{% static 'css/style-admin.css' %}">
+    <style>
+        .sidebar{
+            background: #581845;
+        }        
+        body{
+            background-image: linear-gradient(45deg, #ECD1E4, #ECA4D7, #ECD1E4);
+        }
+    </style>
+</head>
+
+<body >
+    <div class="sidebar">
+        <div class="logo_content">
+            <div class="logo">
+                <i id="icon-home" class="fa fa-home" aria-hidden="true"></i>
+                <div class="logo_name">Donor</div>
+            </div>
+            <span id="btn-sidebar"><i class="fa fa-bars"  aria-hidden="true"></i></span>
+        </div>
+        <div class="profile_content">
+            <div class="profile">
+                <div class="profile_details">
+                    <img src="{{user.donor.userpic.url}}" alt="User Image" >
+                    <div class="name_job">
+                        <div class="name">{{request.user.first_name}} {{request.user.last_name}}</div>
+                        <div class="email">{{request.user.email}}</div>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ul class="nav_list">
+            
+            <li>
+                <a href="{% url 'index_donor' %}">
+                    <!--grid -->
+                    <i id="icon" class="fa fa-th-large" aria-hidden="true"></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li >
+                <a href="{% url 'donate_now' %}">
+                    
+                    <i id="icon" class="fa fa-users" aria-hidden="true"></i>
+                    <span class="links_name">Donate Now</span> 
+                    
+                </a> 
+            </li>
+            <li>
+                <a href="{% url 'donation_history' %}">
+                    <!--grid -->
+                    <i id="icon" class="fa fa-info-circle" aria-hidden="true"></i>
+                    <span class="links_name">Donation History</span>
+                </a>
+            </li>
+            
+            
+            <li>
+                <a href="{% url 'changepwd_donor' %}">
+                    <!--key -->
+                    <i id="icon" class="fa fa-key" aria-hidden="true"></i>
+                    <span class="links_name">Change Password</span>
+                </a> 
+            </li>
+            <li>
+                <a href="{% url 'logout' %}">
+                    <!--logout -->
+                    <i id="icon" class="fa fa-sign-out" aria-hidden="true"></i>
+                    <span class="links_name">Logout</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="home_content">
+        {% block main %}
+        {% endblock main %}
+    </div>   
+    {% include 'base-db-footer.html' %}         

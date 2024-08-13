@@ -1,0 +1,156 @@
+{% extends 'base-db-admin.html' %}
+{% load static %}
+{% block main %}
+<div class="container mt-5 vh-100 table-responsive">
+  <h3>Accepted Donation Detail</h3>
+  <hr>
+  <table id="mytable" class="table data ">
+    <tbody>
+      <tr class="align-middle text-center">
+        <th colspan="4">
+          <h3>Donor Details</h3>
+        </th>
+      </tr>
+      <tr class="align-middle text-center">
+        <td>
+          <h5>Donor Name</h5>
+        </td>
+        <td>
+          <h5 class="text-secondary text-capitalize">{{item.donor.user}}</h5>
+        </td>
+        <td>
+          <h5>Donor Contact</h5>
+        </td>
+        <td>
+          <h5 class="text-secondary">{{item.donor.contact}}</h5>
+        </td>
+      </tr>
+      <tr class="align-middle text-center">
+        <td>
+          <h5>Email</h5>
+        </td>
+        <td>
+          <h5 class="text-secondary">{{item.donor.user.email}}</h5>
+        </td>
+        <td>
+          <h5>Donor Pic</h5>
+        </td>
+        <td><img src="{{item.donor.userpic.url}}" width="80" height="80" /></td>
+      </tr>
+      <tr class="align-middle text-center">
+        <th colspan="4">
+          <h3>Donation Details</h3>
+        </th>
+      </tr>
+      <tr class="align-middle text-center">
+        <td>
+          <h5>Donation Name</h5>
+        </td>
+        <td>
+          <h5 class="text-secondary">{{item.donationname}}</h5>
+        </td>
+        <td>
+          <h5>Donation Pic</h5>
+        </td>
+        <td><img src="{{item.donationpic.url}}" width="80" height="80" /></td>
+      </tr>
+      <tr class="align-middle text-center">
+        <td>
+          <h5>Collection Location</h5>
+        </td>
+        <td>
+          <h5 class="text-secondary">{{item.collectionAddress}}</h5>
+        </td>
+        <td>
+          <h5>Donation Date</h5>
+        </td>
+        <td>
+          <h5 class="text-secondary">{{item.donationdate}}</h5>
+        </td>
+      </tr>
+      <tr class="align-middle text-center">
+        <td>
+          <h5>Status</h5>
+        </td>
+        <td>
+          <span class="text-center bg-danger font-weight-bold text-light text-light py-2 rounded-pill px-5">
+            {{item.status}} </span>
+        </td>
+        <td>
+          <h5>Updation Date</h5>
+        </td>
+        <td>
+          <h5 class="text-secondary">{{item.updationdate}}</h5>
+        </td>
+
+      </tr>
+      <tr class="align-middle text-center">
+        <td>
+          <h5>Admin Remark</h5>
+        </td>
+        <td colspan="3">{{item.adminremark}}</td>
+      </tr>
+      {% if not item.donationarea %}
+
+      <form action="" method="POST">
+        {% csrf_token %}
+        <tr class="align-middle text-center">
+          <td>
+            <h5>Select Donation Distribution Area</h5>
+          </td>
+          <td colspan="3">
+            <select class="form-control" name="donationarea" id="id_donationarea">
+              {% for area in areas %}
+              <option value="{{ area.id }}">{{ area.areaname }}</option>
+              {% endfor %}
+            </select>
+          </td>
+        </tr>
+        <tr class="align-middle text-center">
+          <td>
+            <h5>Select Volunteer</h5>
+          </td>
+          <td colspan="3">
+            <select class="form-control" name="volunteer" id="id_volunteer">
+              {% for v in volunteer %}
+              <option value="{{v.id}}">{{v.user.username}}</option>
+              {% endfor %}
+            </select>
+          </td>
+        </tr>
+        <tr class="align-middle text-center">
+          <td></td>
+          <td colspan="3">
+            <button type="submit" class="btn btn-primary px-5">Update</button>
+          </td>
+        </tr>
+      </form>
+      {% endif %}
+      <tr class="align-middle text-center">
+        <td>
+          <h5>Donation Area</h5>
+        </td>
+        <td colspan="3">
+          <h5 class="text-secondary">{{item.donationarea}}</h5>
+        </td>
+      </tr>
+      <tr class="align-middle text-center">
+        <td>
+          <h5>Volunteer</h5>
+        </td>
+        <td colspan="3">
+          <h5 class="text-secondary text-capitalize">{{item.volunteer}}</h5>
+        </td>
+      </tr>
+      <tr class="align-middle text-center">
+        <td>
+          <h5>Volunteer Remark</h5>
+        </td>
+        <td colspan="3">
+          <h5 class="text-secondary">{{item.volunteerremark}}</h5>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock main %}

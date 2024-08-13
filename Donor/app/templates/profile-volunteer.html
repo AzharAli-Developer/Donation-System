@@ -1,0 +1,83 @@
+{% extends 'base-db-volunteer.html' %}
+{% load static %}
+{% block main %}
+<div class="container mt-5 vh-100 table-responsive">
+    <h3>My Profile</h3>
+    <hr>
+    <div class="row">
+      <div class="col-sm-6 p-2">
+          <div class="form-group">
+              <label>First Name</label>
+              <input type="text" name="firstname" placeholder="Enter First Name"  class="form-control"  pattern="[A-Za-z]+" value="{{volunteer.user.first_name}}">
+          </div>
+      </div>
+      <div class="col-sm-6 p-2">
+          <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" name="lastname" placeholder="Enter Last Name"  class="form-control" pattern="[A-Za-z]+" value="{{volunteer.user.last_name}}">
+          </div>
+      </div>
+
+
+      <div class="col-sm-6 p-2">
+          <div class="form-group">
+              <label>Email ID</label>
+              <input type="email" name="email" readonly placeholder="Email Address" required class="form-control" value="{{volunteer.user.username}}">
+          </div>
+      </div>
+
+      <div class="col-sm-6 p-2">
+          <div class="form-group">
+              <label>Contact</label>
+              <input type="text" name="contact" placeholder="Contact Number" required class="form-control" value="{{volunteer.contact}}">
+          </div>
+      </div>
+
+
+      <div class="col-sm-6 p-2">
+          <div class="form-group">
+              <label>User PIC</label>
+              <input type="file" name="userpic" class="form-control">
+          </div>
+      </div>
+
+      <div class="col-sm-6 p-2">
+          <div class="form-group">
+              <img src = "{% static 'images/avtar1.jpg' %}" width="100" height="100">
+          </div>
+      </div>
+
+      <div class="col-sm-6 p-2">
+          <div class="form-group">
+              <img src = "{% static 'images/avtar3.png' %}" width="100" height="100">
+          </div>
+      </div>
+
+      <div class="col-sm-6 p-2">
+          <div class="form-group">
+              <label>ID Proof PIC(Aadhar ID , Voter ID , Pan Card etc.)</label>
+              <input type="file" name="idpic" class="form-control">
+          </div>
+      </div>
+
+
+      <div class="col-sm-12 p-2">
+          <div class="form-group">
+              <label>Address</label>
+              <textarea name="address" class="form-control" placeholder="Full Address">{{volunteer.address}}</textarea>
+          </div>
+      </div>
+
+      <div class="col-sm-12 p-2">
+          <div class="form-group">
+              <label>About Yourself</label>
+              <textarea name="aboutme" class="form-control" placeholder="About Yourself">{{volunteer.aboutme}}</textarea>
+          </div>
+      </div>
+
+
+  
+  <input type="submit" value="Submit" class="m-2 px-3 btn btn-primary">
+</div>
+  </div>
+{% endblock main %}

@@ -1,0 +1,105 @@
+{% extends 'base-db-volunteer.html' %}
+{% load static %}
+<!-- Home Dashboard -->
+{% block main %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 mt-2">
+            <div class="card text-center">
+                <div class="card-header pt-5 bg-primary text-white">
+                    <div>
+                        <h3>New Donation Collection Request</h3>
+                        <hr>
+                    </div>
+                    <div class="row align-items-center pt-3">
+                        <div class="col">
+                            <i class="fa fa-list fa-3x"></i>
+                        </div>
+                        <div class="col">
+                            <h3 class="display-3">{{donations}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <h4>
+                        <a href="{% url 'collection_req' %}" class="text-primary">View Details</a>
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 mt-2">
+            <div class="card text-center ">
+                <div class="card-header bg-success text-white pt-5">
+                    <div>
+                        <h3>Total Donation Received</h3>
+                        <hr>
+                    </div>
+                    <div class="row align-items-center pt-3">
+                        <div class="col">
+                            <i class="fa fa-snowflake fa-3x"></i>
+                        </div>
+                        <div class="col">
+                            <h3 class="display-3">{{received}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <h4>
+                        <a href="{% url 'donationrec_volunteer' %}" class="text-primary">View Details</a>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-lg-6 col-md-6 mt-2">
+            <div class="card text-center ">
+                <div class="card-header bg-danger text-white pt-5">
+                    <div>
+                        <h3>Total Donation Not Received</h3>
+                        <hr>
+                    </div>
+                    <div class="row align-items-center pt-3">
+                        <div class="col">
+                            <i class="fa fa-arrows fa-3x"></i>
+                        </div>
+                        <div class="col">
+                            <h3 class="display-3">{{notreceived}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <h4>
+                        <a href="{% url 'donationnotrec_volunteer' %}" class="text-primary">View Details</a>
+                    </h4>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-6 col-md-6 mt-2">
+            <div class="card text-center ">
+                <div class="card-header bg-secondary text-white pt-5">
+                    <div>
+                        <h3>Donation Delivered Successfully</h3>
+                        <hr>
+                    </div>
+                    <div class="row align-items-center pt-3">
+                        <div class="col">
+                            <i class="fa fa-exchange fa-3x"></i>
+                        </div>
+                        <div class="col">
+                            <h3 class="display-3">{{delivered}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <h4>
+                        <a href="{% url 'donationdelivered_volunteer' %}" class="text-primary">View Details</a>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main %}

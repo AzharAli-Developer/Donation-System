@@ -1,0 +1,56 @@
+{% extends 'base-db-donor.html' %}
+{% load static %}
+{% block main %}
+<div class="container mt-5 vh-100 table-responsive">
+    <h3>Donate Now</h3>
+    <hr>
+    <div class="row">
+        <div class="col-md-8">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-2">
+                    <label for="id_donor" class="form-label">Donor:</label>
+                    <select name="donor" class="form-control" required="" id="id_donor">
+                        <option value="">---------</option>
+                        <option value="5">ali</option>
+                        <option value="6">sadaf</option>
+                        <option value="7">mahnoor</option>
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <label for="id_donationname" class="form-label">Donationname:</label>
+                    <select name="donationname" class="form-control" required="" id="id_donationname">
+                        <option value="">---------</option>
+                        <option value="Food Donation" >Food Donation</option>
+                        <option value="Cloth Donation">Cloth Donation</option>
+                        <option value="Shoes Donation">Shoes Donation</option>
+                        <option value="Books Donation">Books Donation</option>
+                        <option value="Furniture Donation">Furniture Donation</option>
+                        <option value="Home Donate">Home Donate</option>
+                        <option value="Frig Donation">Frig Donation</option>
+                        <option value="Byc Donation">Byc Donation</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <label for="id_donationpic" class="form-label">Donation Image</label>
+                    <input type="file" name="donationpic" class="form-control" accept="image/*" id="id_donationpic">
+                </div>
+                <div class="mb-2">
+                    <label for="id_collectionAddress" class="form-label">Collection Address</label>
+                    <input type="text" name="collectionAddress" class="form-control" maxlength="120" required=""
+                        id="id_collectionAddress">
+                </div>
+                <div class="mb-2">
+                    <label for="id_description" class="form-label">Description</label>
+                    <input type="text" name="description" class="form-control" maxlength="120" required=""
+                        id="id_description">
+                </div>
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary col-md-12">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock main %}

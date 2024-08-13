@@ -1,0 +1,29 @@
+{% extends 'base-db-admin.html' %}
+{% load static %}
+{% block main %}
+<div class="container mt-5 vh-100 table-responsive">
+    <h3>Add Area</h3>
+    <hr>
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <div class="row">
+            <div class="col-sm-12 p-2">
+                <div class="form-group">
+                    <label id="id_areaname">Donation Area Name</label>
+                    <input type="text" id="id_areaname" name="areaname" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-sm-12 p-2">
+                <div class="form-group">
+                    <label id="id_description">Description</label>
+                    <textarea id="id_description" name="description" class="form-control"></textarea>
+                </div>
+            </div>
+
+            <input type="submit" value="Submit" class="m-2 px-3 btn btn-primary">
+        </div>
+    </form>
+</div>
+{% endblock main %}

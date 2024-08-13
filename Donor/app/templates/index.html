@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+
+<section class="container mb-5">
+    <div class="row shadow-sm p-3 mb-5 bg-white rounded"> 
+        <div class="col-lg-6">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="{% static 'images/one.jpg' %}" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{% static 'images/two.jpg' %}" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{% static 'images/three.png' %}" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="col-lg-6 mt-4 d-flex align-items-center">
+            <div class="card border-primary mb-3 " >
+                <div class="card-header text-center">Donation & Volunteer</div>
+                <div class="card-body text-primary ">
+                  <h5 class="card-title text-center">Reduce Wastage of Needy Items</h5>
+                  <p class="card-text">Help others without any reason and give without the expectation of receiving anything in return.</p>
+                  <p class="text-danger">Always give without remembering and always receive without forgotting.</p>
+                </div>
+              </div>
+        </div>
+    </div>
+    
+</section>
+
+<!-- About -->
+<section class="page-section bg-light" id="about">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">About</h2>
+            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="{% static 'images/donation.jpg' %}" alt="..." />
+                    <h4>Donation</h4>
+                    <p class="text-muted">Nowadays companies are expected to do more for the community. That is, writing checks and donate money is not enough anymore. Customers and other stakeholders asks their favorite brands to proactively engage in order to support and further a social cause. And a way to do this can be through product donation. A lot of big firms, in fact, provide non profits with equipment (imagine an expensive medical machinery), computer, digital infrastructure, or simply with food, clothing and so on. Sometimes we can witness the example of service donation: companies offering their materials and knowledge to build houses, hospitals etc.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="{% static 'images/volunteer.png' %}" alt="..." />
+                    <h4>Volunteer</h4>
+                    <p class="text-muted">Some volunteers want to bring their expertise to your organization, whether it is their marketing background, computer experience, or people skills. Others may volunteer to enhance certain skills or maintain ones they already possess. Still others come with the desire to learn something new.
+                        Many volunteers come to an organization hoping to expand their horizons.
+                        Some of the most rewarding work for volunteers can be direct contact with the individuals an organization serves. They can see the direct benefits of their work in their role as a mentor, helper, or other capacity. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="dovo">
+    <div class="container mt-2">
+        <div class="text-center mt-5 mb-5">
+            <h2 class="section-heading text-uppercase">Donation & Volunteer</h2>
+            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+        </div>
+          <div class="row mb-5">
+            <div class="col-lg-6">
+                <div class="card card-block">
+                    <img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" alt="Photo of sunset">
+                    <h5 class="card-title mt-3 mb-3">Best Way to Help Others</h5>
+                    <p class="card-text text-center">Join us and become a part of this Good Work</p> 
+                    <a href="{% url 'login_donor' %}" class="btn btn-primary btn-lg btn-block">Donate Now</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card card-block">
+                    <img src="https://static.pexels.com/photos/7357/startup-photos.jpg" alt="Photo of sunset">
+                    <h5 class="card-title  mt-3 mb-3">Become a Volunteer Today</h5>
+                    <p class="card-text text-center">One of the greatest gifts you can give is your time</p> 
+                    <a href="{% url 'login_volunteer' %}" class="btn btn-danger btn-lg btn-block">Become Volunteer</a>
+                </div>
+            </div>
+           
+            
+          </div>
+          
+        </div>
+</section>
+
+<!-- Contact US -->
+<section id="contact">
+    <div class="container mt-2">
+        <div class="text-center mt-5 mb-5">
+            <h2 class="section-heading text-uppercase">Contact US</h2>
+            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+        </div>
+        <div class="row mb-5 bg-light contact-card align-items-center text-center">
+            <div class="col-xl-3 col-lg-6 ">
+                <div class="contact-head"><i class="fa fa-phone-square" aria-hidden="true"></i>
+                    Contact
+                </div>
+                <div class="contact-text">+91 0000000000</div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+                <div class="contact-head"><i class="fa fa-envelope" aria-hidden="true"></i>
+                    Send Mail
+                </div>
+                <div class="contact-text">abc@gmail.com</div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+                <div class="contact-head"><i class="fa fa-address-book" aria-hidden="true"></i>
+                    Office Address
+                </div>
+                <div class="contact-text">Pune Maharashtra</div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+                <div class="contact-head"><i class="fa fa-clock-o" aria-hidden="true"></i>
+                    Office Hours
+                </div>
+                <div class="contact-text">9:00AM to 7:00PM</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock main %}
+

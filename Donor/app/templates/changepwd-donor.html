@@ -1,0 +1,36 @@
+{% extends 'base-db-donor.html' %}
+{% load static %}
+{% block main %}
+<div class="container mt-5 vh-100 table-responsive">
+    <h3>Change Password</h3>
+    <hr>
+    <div class="row">
+        <div class="col-lg-5 p-2">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {% for fm in form %}
+                {{fm.label_tag}}{{fm}}
+                {% endfor %}
+                <div class="d-grid  my-2">
+                    <input type="submit" value="Submit" class="m-2 px-3 btn btn-primary">
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-lg-5 p-2">
+            {% if messages %}
+            {% for message in messages %}
+            <p {% if message.tags %} class="alert alert-{{message.tags}} my-5" {% endif %}>{{message}}</p>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+
+
+    
+
+</div>
+{% endblock main %}
