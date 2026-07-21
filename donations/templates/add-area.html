@@ -1,0 +1,22 @@
+{% extends 'base-db-admin.html' %}
+{% load static %}
+{% block main %}
+<div class="container mt-5 vh-100 table-responsive">
+    <h3>Add Area</h3>
+    <hr>
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        {% for field in form %}
+            <div class="form-group p-2">
+                {{ field.label_tag }}
+                {{ field }}
+                {% for error in field.errors %}
+                    <div class="text-danger small">{{ error }}</div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+        <input type="submit" value="Submit" class="m-2 px-3 btn btn-primary">
+    </form>
+</div>
+{% endblock main %}

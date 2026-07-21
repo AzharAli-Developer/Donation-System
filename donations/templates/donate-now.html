@@ -1,0 +1,27 @@
+{% extends 'base-db-donor.html' %}
+{% load static %}
+{% block main %}
+<div class="container mt-5 vh-100 table-responsive">
+    <h3>Donate Now</h3>
+    <hr>
+    <div class="row">
+        <div class="col-md-8">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="mb-2">
+                        {{ field.label_tag }}
+                        {{ field }}
+                        {% for error in field.errors %}
+                            <div class="text-danger small">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary col-md-12">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock main %}

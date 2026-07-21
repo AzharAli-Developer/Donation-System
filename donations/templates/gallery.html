@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+<div class="container mt-5 dashboard-page">
+  <h3>Delivered Donations Gallery</h3>
+  <hr>
+  <div class="row">
+    {% for gallery_item in gallery_items %}
+      <div class="col-md-6 col-xl-4 mb-4">
+        <div class="card h-100">
+          {% if gallery_item.deliverypic %}
+            <img src="{{ gallery_item.deliverypic.url }}" class="card-img-top gallery-image" alt="Delivered donation">
+          {% elif gallery_item.donation.donationpic %}
+            <img src="{{ gallery_item.donation.donationpic.url }}" class="card-img-top gallery-image" alt="Donation">
+          {% else %}
+            <img src="{% static 'images/donation.jpg' %}" class="card-img-top gallery-image" alt="Donation">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ gallery_item.donation.donationname }}</h5>
+            <p class="card-text mb-1">Area: {{ gallery_item.donation.donationarea|default:"Not assigned" }}</p>
+            <p class="card-text mb-1">Donor: {{ gallery_item.donation.donor }}</p>
+            <p class="card-text mb-0">Volunteer: {{ gallery_item.donation.volunteer|default:"Not assigned" }}</p>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <div class="col-12">
+        <div class="alert alert-info">No delivered donations are available in the gallery yet.</div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock main %}

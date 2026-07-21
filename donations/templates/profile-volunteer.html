@@ -1,0 +1,27 @@
+{% extends 'base-db-volunteer.html' %}
+{% load static %}
+{% block main %}
+<div class="container mt-5 dashboard-page">
+  <h3>My Profile</h3>
+  <hr>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+      {% for field in form %}
+        <div class="col-md-6 p-2">
+          <div class="form-group">
+            {{ field.label_tag }}
+            {{ field }}
+            {% for error in field.errors %}
+              <div class="text-danger small">{{ error }}</div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+      <div class="col-12 p-2">
+        <button type="submit" class="btn btn-primary px-4">Save Profile</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock main %}
